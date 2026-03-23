@@ -131,6 +131,10 @@ function OracleDashboard({ data, globalData, title, accent, cycle, setCycle }) {
     });
   }, [globalData]);
 
+  if (!globalData || !data || !data.tiers) {
+    return <div style={{ padding: "20px", color: COLORS.textDim, textAlign: "center" }}>Analysis structure loading or incomplete...</div>;
+  }
+
   const structItems = cycle ? STRUCTURE_ITEMS[cycle] : [];
   const confirmItems = cycle ? CONFIRM_ITEMS[cycle] : [];
   const structCount = Object.values(structChecks).filter(Boolean).length;
