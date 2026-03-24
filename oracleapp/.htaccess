@@ -1,0 +1,15 @@
+# 🛡️ Oracle Pro - Namecheap LiteSpeed/Handshake Fix (.htaccess)
+# v9.2 Final Polish
+
+Options -MultiViews
+RewriteEngine On
+RewriteBase /
+
+# 1. If physical file exists (index.html, assets), serve it normally
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# 2. Otherwise, PASS ALL TRAFFIC to the Node.js process (app.js)
+# This is the LiteSpeed-friendly way to ensure the handler is invoked.
+RewriteRule ^(.*)$ app.js [PT,L]

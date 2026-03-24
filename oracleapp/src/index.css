@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap');
+
+:root {
+  /* HSL Color System - Deep Modern Dark */
+  --bg-pure: 220 20% 4%;
+  --bg-deep: 220 20% 6%;
+  --bg-panel: 220 20% 10%;
+  --bg-glass: 220 20% 12% / 0.7;
+  
+  /* Primary Accents */
+  --accent-primary: 180 100% 50%; /* Oracle Cyan */
+  --accent-secondary: 260 80% 60%; /* Oracle Purple */
+  --accent-orange: 25 100% 55%;
+  --accent-red: 350 100% 60%;
+  
+  /* Text Layers */
+  --text-main: 220 10% 95%;
+  --text-mid: 220 10% 70%;
+  --text-dim: 220 10% 45%;
+  
+  /* Glassmorphism */
+  --glass-border: 220 10% 25% / 0.5;
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+  --glass-blur: blur(12px);
+  
+  /* Typography */
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: hsl(var(--bg-pure));
+  color: hsl(var(--text-main));
+  font-family: var(--font-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+}
+
+/* Scrollbar Stylings */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: hsl(var(--text-dim) / 0.3); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(var(--accent-primary) / 0.5); }
+
+/* Animation Utils */
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-slide-up { animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-fade-in { animation: fadeIn 0.8s ease forwards; }
+
+/* Glassmorphic Utilities */
+.glass {
+  background: hsl(var(--bg-glass));
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid hsl(var(--glass-border));
+  box-shadow: var(--glass-shadow);
+}
+
+.card-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-shine::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, hsl(var(--accent-primary) / 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Mobile Touch Optimizations */
+input, button {
+  font-family: inherit;
+  font-size: 16px; /* Prevent iOS zoom */
+}
