@@ -11,7 +11,7 @@ dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-console.log(`[BOOT] Oracle Pro Universal v10.4 (Full Sync) Starting...`);
+console.log(`[BOOT] Oracle Pro Universal v10.6 (FINAL SYNC) Starting...`);
 
 const app = express();
 const PORT = process.env.PORT || 8890;
