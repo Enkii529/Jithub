@@ -135,7 +135,7 @@ function OracleDashboard({ data, globalData, title, accent, cycle, setCycle }) {
   if (!globalData || !data || !data.tiers) {
     return (
       <div style={{ padding: "40px 20px", color: COLORS.textDim, textAlign: "center" }}>
-        <p style={{ marginBottom: "20px" }}>Analysis structure loading or incomplete...</p>
+        <p style={{ marginBottom: "20px" }}>v10.7 - Analysis structure loading or incomplete...</p>
         <button onClick={() => setShowRaw(!showRaw)} style={{ padding: "8px 16px", background: "transparent", border: `1px solid ${COLORS.border}`, color: COLORS.primary, borderRadius: "8px", fontSize: "10px", fontWeight: 700 }}>
           {showRaw ? "HIDE DATA" : "INSPECT RAW CONTENT"}
         </button>
